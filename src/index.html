@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lightsaber</title>
+</head>
+<style>
+  body {
+    background: linear-gradient(to top, rgb(47, 55, 61) 60%, rgb(10, 62, 107));
+    padding: 490px 500px;
+    height: 100vh;
+  }
+
+  #handler {
+    position: relative;
+    width: 30px;
+    height: 160px;
+    background-color: gray;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+  }
+
+  #handler-components {
+    position: relative;
+    margin-top: -40px;
+    margin-left: -8px;
+  }
+
+  label {
+    position: absolute;
+    top: 19px;
+    left: 8px;
+    width: 13px;
+    height: 13px;
+  }
+
+  #button-press {
+    cursor: pointer;
+    position: absolute;
+    top: 19px;
+    left: 8px;
+    width: 13px;
+    height: 13px;
+    background-color: brown;
+    border-radius: 50%;
+    border: 1px solid rgb(53, 53, 53);
+  }
+
+  input {
+    opacity: 0;
+  }
+
+  #handler-detail {
+    position: absolute;
+    background: black;
+    top: 50px;
+    margin-left: -10px;
+    width: 40px;
+    height: 20px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+
+  .stripe {
+    position: absolute;
+    background: black;
+    top: 90px;
+    width: 5px;
+    height: 65px;
+  }
+
+  #lightsaber-light {
+    position: absolute;
+    height: 370px;
+    width: 30px;
+    top: -330px;
+    z-index: -1;
+    background: aqua;
+    filter: drop-shadow(0px -10px 25px aqua);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    opacity: 0;
+  }
+
+  input:checked~#handler-components #lightsaber-light {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+
+  input:not(checked)~#handler-components #lightsaber-light {
+    opacity: 0;
+    transition: opacity 1s;
+  }
+</style>
+
+<body>
+  <div id="handler">
+    <label for="switch-button">
+      <input type="checkbox" name="switch-button" id="switch-button">
+      <div id="handler-components">
+        <div id="button-press"></div>
+        <div id="handler-detail"></div>
+        <div style="left: 0" class="stripe"></div>
+        <div style="left: 8px" class="stripe"></div>
+        <div style="left: 16px" class="stripe"></div>
+        <div style="left: 25px" class="stripe"></div>
+        <div id="lightsaber-light"></div>
+      </div>
+    </label>
+  </div>
+</body>
+
+</html>
